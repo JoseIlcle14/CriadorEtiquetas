@@ -7,6 +7,7 @@ import javax.print.PrintException;
 import javax.print.PrintService;
 import model.Produto;
 import service.ImportProduto;
+import view.TelaPrincipal;
 import zebra.GeradorZPL;
 import zebra.ImpressoraZebra;
 
@@ -29,6 +30,10 @@ public class Main {
         GeradorZPL geradorZpl = new GeradorZPL();
         ImpressoraZebra impressoraZebra = new ImpressoraZebra();
 
+        
+        java.awt.EventQueue.invokeLater(() -> {
+        new TelaPrincipal().setVisible(true);
+        });
         // 1) Caminho do arquivo -------------------------------------------------
         String caminho = obterCaminhoArquivo(scanner, args);
         if (caminho == null) {
